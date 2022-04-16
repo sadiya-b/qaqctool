@@ -1,6 +1,7 @@
 package corecentra.qaqctool.fields;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name ="projectfields")
@@ -17,6 +18,7 @@ public class ProjectFields {
 
     @Column(nullable = true, unique = false)
     private Long fieldlimit;
+
 
     //region - getters setters
     public long getId() {

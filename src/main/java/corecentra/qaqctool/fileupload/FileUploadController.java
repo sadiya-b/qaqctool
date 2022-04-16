@@ -59,10 +59,6 @@ public class FileUploadController {
             ioException.printStackTrace();
         }
 
-        /*ProjectController pl = new ProjectController();
-        List<ProjectLookup> plist = pl.getLookupData();*/
-
-        //need to change to return new ModelAndView("redirect:/controller/mapping");
         return new RedirectView("/uploadFiles",true);
     }
 

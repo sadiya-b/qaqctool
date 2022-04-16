@@ -4,7 +4,7 @@ import com.poiji.annotation.ExcelCell;
 import com.poiji.annotation.ExcelSheet;
 import lombok.AllArgsConstructor;
 
-@ExcelSheet("Project")
+@ExcelSheet("Projects")
 @AllArgsConstructor
 public class ProjectLookup {
     @ExcelCell(0)

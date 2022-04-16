@@ -5,6 +5,15 @@
     <title>ID check</title>
 </head>
 <body>
+<div>
+    <form th:action="@{/logout}" method="post">
+        <p>
+            Welcome
+        </p>
+        <input type="submit" value="Sign Out" />
+    </form>
+</div>
+
     <form th:action="@{/upload/lookup}" method="post" enctype="multipart/form-data">
         <div>
             <label>ID Check File: </label>
@@ -22,5 +31,6 @@
         </div>
     </form>
     </div>
+<!--pragun to add error messages if file upload not successful-->
 </body>
 </html>
