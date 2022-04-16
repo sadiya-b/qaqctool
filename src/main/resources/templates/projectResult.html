@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result Project</title>
+</head>
+<body>
+<h3> Project result page</h3>
+
+<table>
+    <tr>
+        <th>Column</th>
+        <th>Row</th>
+        <th>Description</th>
+    </tr>
+    <tr th:each="product : ${error}">
+        <td th:text="${product.columnName}"></td>
+        <td th:text="${product.rowNumber}"></td>
+        <td th:text="${product.errorMessage}"></td>
+    </tr>
+    <table>
+</body>
+</html>
