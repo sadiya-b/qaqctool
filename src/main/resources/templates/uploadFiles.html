@@ -31,6 +31,15 @@
             <label><a th:href="@{/result/project}">Results</a></label>
         </div>
     </form>
+
+    <form th:action="@{/upload/result}" method="post" enctype="multipart/form-data">
+        <div>
+            <label>Result File: </label>
+            <input type="file" name="result" accept=".xls,.xlsx" >
+            <input type="submit" value="Upload"/>
+            <label><a th:href="@{/result/results}">Results</a></label>
+        </div>
+    </form>
     </div>
 <!--pragun to add error messages if file upload not successful-->
 </body>
