@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>update contribution row</title>
+</head>
+<body>
+<form th:action="@{/contributionUpdate}" th:object="${contribution}" method="post">
+    <input type="hidden" name="id" th:value="${contribution.id}">
+    <input type ="text" name="fieldname" th:value="${contribution.fieldname}" />
+    <input type="text" name="fieldtype" th:value="${contribution.fieldtype}">
+    <input type="text" name="fieldlimit" th:value="${contribution.fieldlimit}">
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>
