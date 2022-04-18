@@ -8,7 +8,7 @@ import java.util.List;
 public class ProjectFields {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(nullable = false, unique = true, length = 50)
     private String fieldname;
@@ -53,6 +53,7 @@ public class ProjectFields {
     }
 
     public void setFieldlimit(Long fieldlimit) {
+
         this.fieldlimit = fieldlimit==null?0L:fieldlimit;
     }
     //endregion

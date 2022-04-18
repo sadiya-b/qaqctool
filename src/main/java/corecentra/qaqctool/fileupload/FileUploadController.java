@@ -62,6 +62,96 @@ public class FileUploadController {
         return new RedirectView("/uploadFiles",true);
     }
 
+    @PostMapping("/upload/result")
+    public RedirectView uploadResult(@RequestParam("result") MultipartFile file, Model model) throws IOException{
+
+        if(!isLookupUploaded(String.format("lookupfile".concat("_"+getCurrentUser()).concat(".xlsx")))){
+            throw new IOException("Lookup File doesn't exist. Please Upload lookup file before proceeding");
+        }
+
+        try {
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get(fileLocation + file.getName().concat("_"+getCurrentUser()).concat(".xlsx"));
+            Files.write(path, bytes);
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+
+        return new RedirectView("/uploadFiles",true);
+    }
+
+    @PostMapping("/upload/impact")
+    public RedirectView uploadImpact(@RequestParam("impact") MultipartFile file, Model model) throws IOException{
+
+        if(!isLookupUploaded(String.format("lookupfile".concat("_"+getCurrentUser()).concat(".xlsx")))){
+            throw new IOException("Lookup File doesn't exist. Please Upload lookup file before proceeding");
+        }
+
+        try {
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get(fileLocation + file.getName().concat("_"+getCurrentUser()).concat(".xlsx"));
+            Files.write(path, bytes);
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+
+        return new RedirectView("/uploadFiles",true);
+    }
+
+    @PostMapping("/upload/task")
+    public RedirectView uploadTask(@RequestParam("task") MultipartFile file, Model model) throws IOException{
+
+        if(!isLookupUploaded(String.format("lookupfile".concat("_"+getCurrentUser()).concat(".xlsx")))){
+            throw new IOException("Lookup File doesn't exist. Please Upload lookup file before proceeding");
+        }
+
+        try {
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get(fileLocation + file.getName().concat("_"+getCurrentUser()).concat(".xlsx"));
+            Files.write(path, bytes);
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+
+        return new RedirectView("/uploadFiles",true);
+    }
+
+    @PostMapping("/upload/donor")
+    public RedirectView uploadDonor(@RequestParam("donor") MultipartFile file, Model model) throws IOException{
+
+        if(!isLookupUploaded(String.format("lookupfile".concat("_"+getCurrentUser()).concat(".xlsx")))){
+            throw new IOException("Lookup File doesn't exist. Please Upload lookup file before proceeding");
+        }
+
+        try {
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get(fileLocation + file.getName().concat("_"+getCurrentUser()).concat(".xlsx"));
+            Files.write(path, bytes);
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+
+        return new RedirectView("/uploadFiles",true);
+    }
+
+    @PostMapping("/upload/contribution")
+    public RedirectView uploadContribution(@RequestParam("contribution") MultipartFile file, Model model) throws IOException{
+
+        if(!isLookupUploaded(String.format("lookupfile".concat("_"+getCurrentUser()).concat(".xlsx")))){
+            throw new IOException("Lookup File doesn't exist. Please Upload lookup file before proceeding");
+        }
+
+        try {
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get(fileLocation + file.getName().concat("_"+getCurrentUser()).concat(".xlsx"));
+            Files.write(path, bytes);
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+
+        return new RedirectView("/uploadFiles",true);
+    }
+
     //region - common methods
     private boolean isLookupUploaded(String fileName) {
         return Files.exists(Path.of(fileLocation.concat(fileName)));

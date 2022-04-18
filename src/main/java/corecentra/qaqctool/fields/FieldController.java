@@ -16,13 +16,15 @@ public class FieldController {
 
     @Autowired
     private ProjectFieldRepository projectFieldRepository;
-
+    @Autowired
+    private ResultFieldRepository resultFieldRepository;
 
     @GetMapping("/fields")
     public String viewFieldMapping() {
         return "fields";
     }
 
+    //region - Project Fields
     @GetMapping("/viewproject")
     public String viewProjectFields(Model model) {
         List<ProjectFields> projectFieldsList = projectFieldRepository.findAll();
@@ -30,7 +32,6 @@ public class FieldController {
 
         return "viewproject";
     }
-
 
     @PostMapping("/update/projectfields")
     public String updateProjectFields(@ModelAttribute("project") ProjectFields fields, Model model) {
@@ -47,4 +48,30 @@ public class FieldController {
 
         return "redirect:viewproject";
     }
+    //endregion
+
+    //region - Result Fields
+    @GetMapping("/viewresult")
+    public String viewResultFields(Model model) {
+        List<ResultFields> resultFieldsList = resultFieldRepository.findAll();
+        model.addAttribute("result", resultFieldsList);
+
+        return "viewresult";
+    }
+
+    @PostMapping("/update/resultfields")
+    public String updateResultFields(@ModelAttribute("result") ResultFields fields, Model model) {
+        model.addAttribute("rowResult", fields);
+        return "resultUpdate";
+    }
+
+    @RequestMapping("/resultUpdate")
+    public String resultRowUpdate(@ModelAttribute(value = "result") ResultFields fields, Model model){
+        fields.setFieldtype(fields.getFieldtype());
+        fields.setFieldlimit(fields.getFieldlimit());
+        resultFieldRepository.save(fields);
+
+        return "redirect:viewresult";
+    }
+    //endregion
 }

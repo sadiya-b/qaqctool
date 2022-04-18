@@ -31,7 +31,6 @@ public class ProjectController {
     @Autowired
     ProjectFieldRepository projectFieldRepository;
 
-
     public ProjectController() {}
 
     public ArrayList<ProjectLookup> getLookupData(){
