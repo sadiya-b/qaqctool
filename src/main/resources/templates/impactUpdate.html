@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/styleSheetFieldTypeUpdatePage.css" />
 <head>
     <meta charset="UTF-8">
     <title>update impact row</title>
 </head>
 <body>
-<form th:action="@{/impactUpdate}" th:object="${impact}" method="post">
-    <input type="hidden" name="id" th:value="${impact.id}">
-    <input type ="text" name="fieldname" th:value="${impact.fieldname}" />
-    <input type="text" name="fieldtype" th:value="${impact.fieldtype}">
-    <input type="text" name="fieldlimit" th:value="${impact.fieldlimit}">
-    <button type="submit">Update</button>
-</form>
+<div class="logo">
+    <img src="/Assets/logo.jpeg" width="240px" height="35px">
+</div>
+<div class="content-wrapper">
+    <img src="/Assets/background.jpeg">
+    <div class="mainHeading">
+        <form th:action="@{/impactUpdate}" th:object="${impact}" method="post">
+            <input type="hidden" name="id" th:value="${impact.id}">
+            <input type ="text" name="fieldname" th:value="${impact.fieldname}" />
+            <input type="text" name="fieldtype" th:value="${impact.fieldtype}">
+            <input type="text" name="fieldlimit" th:value="${impact.fieldlimit}">
+            <button class="btn" type="submit">Update</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

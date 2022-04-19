@@ -1,0 +1,92 @@
+.body {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.content-wrapper {
+    width: 100%;
+    position: absolute;
+}
+
+.content-wrapper img {
+    width: 100%;
+}
+
+.logo {
+    position: absolute;
+    top: 3%;
+    left: 1%;
+    z-index: 1;
+}
+
+.mainHeading {
+    width: 100%;
+    position: relative;
+    margin-top: -70%
+}
+
+.mainHeading h3 {
+    text-align: center;
+    position: relative;
+    color: #3E6286;
+    top: -10px;
+    font-size: 3vw;
+    font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.content-table {
+  border-collapse: collapse;
+  margin: 50px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  table-layout:fixed;
+}
+
+.content-table thead tr {
+  background-color: #3E6286;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table thead {
+    position: sticky;
+    top: 0;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+  font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.content-table td {
+    text-align: center;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid grey;
+  background-color: lavender;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #3E6286;
+}
+
+.tableContainer {
+    display: grid;
+    max-height: 600px;
+    overflow-x: auto;
+    overflow-y : scroll;
+}

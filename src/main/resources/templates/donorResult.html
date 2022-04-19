@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/styleSheetAllResultsPage.css" />
 <head>
     <meta charset="UTF-8">
     <title>Result Donor</title>
 </head>
 <body>
-<h3> Donor result page</h3>
-
-<table>
-    <tr>
-        <th>Column</th>
-        <th>Row</th>
-        <th>Description</th>
-    </tr>
-    <tr th:each="donor : ${error}">
-        <td th:text="${donor.columnName}"></td>
-        <td th:text="${donor.rowNumber}"></td>
-        <td th:text="${donor.errorMessage}"></td>
-    </tr>
-    </table>
+<div class="logo">
+    <img src="/Assets/logo.jpeg" width="240px" height="35px">
+</div>
+<div class="content-wrapper">
+    <img src="/Assets/background.jpeg">
+    <div class="mainHeading">
+        <h3> Donor result page</h3>
+    </div>
+    <div class="tableContainer">
+        <table style="overflow: auto;" class="content-table">
+            <tr>
+                <th>Column</th>
+                <th>Row</th>
+                <th>Description</th>
+            </tr>
+            <tr th:each="donor : ${error}">
+                <td th:text="${donor.columnName}"></td>
+                <td th:text="${donor.rowNumber}"></td>
+                <td th:text="${donor.errorMessage}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
 </body>
 </html>
