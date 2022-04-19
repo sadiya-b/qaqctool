@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="/styleSheetViewProjectPage.css" />
+<link rel="stylesheet" href="/styleSheetViewFieldTypePage.css" />
 <head>
     <meta charset="UTF-8">
     <title>Project</title>
@@ -35,6 +35,9 @@
             </tr>
         </table>
     </div>
+    <form th:action="@{/fields}">
+        <button type="submit" class="backBtn">Back</button>
+    </form>
 </div>
 </body>
 </html>
