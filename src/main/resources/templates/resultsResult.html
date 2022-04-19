@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result results</title>
+</head>
+<body>
+<h3> Results page</h3>
+
+<table>
+    <tr>
+        <th>Column</th>
+        <th>Row</th>
+        <th>Description</th>
+    </tr>
+    <tr th:each="result : ${error}">
+        <td th:text="${result.columnName}"></td>
+        <td th:text="${result.rowNumber}"></td>
+        <td th:text="${result.errorMessage}"></td>
+    </tr>
+    </table>
+<!--pragun to add return to upload file page button-->
+</body>
+</html>

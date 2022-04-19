@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>update impact row</title>
+</head>
+<body>
+<form th:action="@{/impactUpdate}" th:object="${impact}" method="post">
+    <input type="hidden" name="id" th:value="${impact.id}">
+    <input type ="text" name="fieldname" th:value="${impact.fieldname}" />
+    <input type="text" name="fieldtype" th:value="${impact.fieldtype}">
+    <input type="text" name="fieldlimit" th:value="${impact.fieldlimit}">
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>
