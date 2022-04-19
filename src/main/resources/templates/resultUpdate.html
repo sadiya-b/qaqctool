@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/styleSheetFieldTypeUpdatePage.css" />
 <head>
     <meta charset="UTF-8">
     <title>update result row</title>
 </head>
 <body>
-<form th:action="@{/resultUpdate}" th:object="${result}" method="post">
-    <input type="hidden" name="id" th:value="${result.id}">
-    <input type ="text" name="fieldname" th:value="${result.fieldname}" />
-    <input type="text" name="fieldtype" th:value="${result.fieldtype}">
-    <input type="text" name="fieldlimit" th:value="${result.fieldlimit}">
-    <button type="submit">Update</button>
-</form>
+<div class="logo">
+    <img src="/Assets/logo.jpeg" width="240px" height="35px">
+</div>
+<div class="content-wrapper">
+    <img src="/Assets/background.jpeg">
+    <div class="mainHeading">
+        <form th:action="@{/resultUpdate}" th:object="${result}" method="post">
+            <input type="hidden" name="id" th:value="${result.id}">
+            <input type ="text" name="fieldname" th:value="${result.fieldname}" />
+            <input type="text" name="fieldtype" th:value="${result.fieldtype}">
+            <input type="text" name="fieldlimit" th:value="${result.fieldlimit}">
+            <button class="btn" type="submit">Update</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

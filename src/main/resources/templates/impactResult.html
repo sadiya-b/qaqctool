@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/styleSheetAllResultsPage.css" />
 <head>
     <meta charset="UTF-8">
     <title>Result impact</title>
 </head>
 <body>
-<h3> Impact results page</h3>
-
-<table>
-    <tr>
-        <th>Column</th>
-        <th>Row</th>
-        <th>Description</th>
-    </tr>
-    <tr th:each="impact : ${error}">
-        <td th:text="${impact.columnName}"></td>
-        <td th:text="${impact.rowNumber}"></td>
-        <td th:text="${impact.errorMessage}"></td>
-    </tr>
-    </table>
-<!--pragun to add return to upload file page button-->
+<div class="logo">
+    <img src="/Assets/logo.jpeg" width="240px" height="35px">
+</div>
+<div class="content-wrapper">
+    <img src="/Assets/background.jpeg">
+    <div class="mainHeading">
+        <h3> Impact results page</h3>
+    </div>
+    <div class="tableContainer">
+        <table style="overflow: auto;" class="content-table">
+            <tr>
+                <th>Column</th>
+                <th>Row</th>
+                <th>Description</th>
+            </tr>
+            <tr th:each="impact : ${error}">
+                <td th:text="${impact.columnName}"></td>
+                <td th:text="${impact.rowNumber}"></td>
+                <td th:text="${impact.errorMessage}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
 </body>
 </html>
