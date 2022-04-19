@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/styleSheetFieldsPage.css" />
 <head>
     <meta charset="UTF-8">
     <title>Field Update</title>
 </head>
 <body>
-<h3><a th:href = "@{/viewproject}">Project Fields</a></h3>
-<h3><a th:href = "@{/viewresult}">Result Fields</a></h3>
-
-<!--pragun to add view(sheetname) for all the other workbooks-->
+<div class="logo">
+    <img src="/Assets/logo.jpeg" width="240px" height="35px">
+</div>
+<div class="content-wrapper">
+    <img src="/Assets/background.jpeg">
+        <div class="mainHeading">
+            <h3><a class="link" th:href = "@{/viewproject}">Project Fields</a></h3>
+            <h3><a class="link" th:href = "@{/viewresult}">Result Fields</a></h3>
+            <h3><a class="link" th:href = "@{/viewimpact}">Impact Fields</a></h3>
+            <h3><a class="link" th:href = "@{/viewtask}">Task Fields</a></h3>
+            <h3><a class="link" th:href = "@{/viewdonors}">Donors Fields</a></h3>
+            <h3><a class="link" th:href = "@{/viewcontribution}">Contribution Fields</a></h3>
+        </div>
+</div>
 </body>
 </html>

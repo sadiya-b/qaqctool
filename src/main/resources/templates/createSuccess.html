@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/styleSheetClientSuccess.css" />
 <head>
     <meta charset="UTF-8">
     <title>Client Success</title>
 </head>
 <body>
-<div class="container text-center">
-    <h3>Client created successfully!</h3>
-    <h4><a th:href="@{/index}">Return to homepage</a></h4>
+<div class="logo">
+    <img src="/Assets/logo.jpeg" width="240px" height="35px">
+</div>
+<div class="content-wrapper">
+    <img src="/Assets/background.jpeg">
+    <div class="mainHeading">
+        <h3>Client created successfully!</h3>
+        <h4><a th:href="@{/index}">Return to homepage</a></h4>
+    </div>
 </div>
 </body>
 </html>

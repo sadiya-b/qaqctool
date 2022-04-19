@@ -1,0 +1,43 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+.body {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.content-wrapper {
+    width: 100%;
+}
+
+.content-wrapper img {
+    width: 100%;
+}
+
+.logo {
+    position: absolute;
+    top: 3%;
+    left: 1%;
+}
+
+.mainHeading {
+    width: 100%;
+    position: relative;
+    margin-top: -70%
+}
+
+.mainHeading h3 {
+    text-align: center;
+    position: relative;
+    color: #3E6286;
+    top: -10px;
+    font-size: 3vw;
+    font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.link {
+    height: 30px;
+    color: #3E6286;
+    font-size: 24px;
+    font-family: "Open Sans", Helvetica, sans-serif;
+}

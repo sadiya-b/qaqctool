@@ -1,37 +1,173 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="styleSheetUploadPage.css" />
+<script type="text/javascript">
+        function showLookupFileName() {
+            var fileName = document.getElementById("LookupFileUploaded");
+            document.getElementById("LookupFileName").textContent = fileName.files.item(0).name;
+        }
+        function showProjectFileName() {
+            var fileName = document.getElementById("ProjectFileUploaded");
+            document.getElementById("ProjectFileName").textContent = fileName.files.item(0).name;
+        }
+        function showResultsFileName() {
+            var fileName = document.getElementById("ResultsFileUploaded");
+            document.getElementById("ResultsFileName").textContent = fileName.files.item(0).name;
+        }
+        function showImpactsFileName() {
+            var fileName = document.getElementById("ImpactsFileUploaded");
+            document.getElementById("ImpactsFileName").textContent = fileName.files.item(0).name;
+        }
+        function showTasksFileName() {
+            var fileName = document.getElementById("TasksFileUploaded");
+            document.getElementById("TasksFileName").textContent = fileName.files.item(0).name;
+        }
+        function showDonorsFileName() {
+            var fileName = document.getElementById("DonorsFileUploaded");
+            document.getElementById("DonorsFileName").textContent = fileName.files.item(0).name;
+        }
+        function showDonorsContributionFileName() {
+            var fileName = document.getElementById("DonorsContributionFileUploaded");
+            document.getElementById("DonorsContributionName").textContent = fileName.files.item(0).name;
+        }
+ </script>
 <head>
     <meta charset="UTF-8">
     <title>ID check</title>
 </head>
 <body>
+
+<div class="logo">
+    <img src="./Assets/logo.jpeg" width="240px" height="35px">
+</div>
+<div class="content-wrapper">
+    <img src="./Assets/background.jpeg">
+</div>
+
 <div>
     <form th:action="@{/logout}" method="post">
-        <p>
-            Welcome
-        </p>
-        <input type="submit" value="Sign Out" />
+        <input type="submit" value="Sign Out" class="rBtn">Sign Out</input>
     </form>
 </div>
 
+<div class="box-container">
     <form th:action="@{/upload/lookup}" method="post" enctype="multipart/form-data">
-        <div>
-            <label>ID Check File: </label>
-            <input type="file" name="lookupfile" accept=".xls,.xlsx" >
+        <div class="box">
+            <div class="title">
+                <h2>Drop ID Check file to upload</h2>
+            </div>
+            <div class="dropzone">
+                <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+                <input type="file" accept=".xls,.xlsx" name="lookupfile" id="LookupFileUploaded" onchange="showLookupFileName()" class="upload-input" />
+            </div>
+            <p class="fileName" id="LookupFileName"> File Name </p>
+            <button type="submit" class="btn" name="uploadButton">Upload File</button>
         </div>
-        <div><input type="submit" value="Upload"/></div>
     </form>
-    <div>
-        <!--pragun to add form for all the workbooks, refer FileUploadController for mapping-->
     <form th:action="@{/upload/project}" method="post" enctype="multipart/form-data">
-        <div>
-            <label>Project File: </label>
-            <input type="file" name="project" accept=".xls,.xlsx" >
-            <input type="submit" value="Upload"/>
-            <label><a th:href="@{/result/project}">Results</a></label>
+        <div class="box">
+            <div class="title">
+                <h2>Drop Projects file to upload</h2>
+            </div>
+            <div class="dropzone">
+                <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+                <input type="file" accept=".xls,.xlsx" name="file" id="ProjectFileUploaded" onchange="showProjectFileName()" class="upload-input" />
+            </div>
+            <p class="fileName" id="ProjectFileName"> File Name </p>
+            <button type="submit" class="btn" name="uploadButton">Upload File</button>
+            <br>
+            <label><a class="info" th:href="@{/result/project}">Results</a></label>
+            </br>
         </div>
     </form>
-    </div>
-<!--pragun to add error messages if file upload not successful-->
+    <form th:action="@{/upload/result}" method="post" enctype="multipart/form-data">
+        <div class="box">
+            <div class="title">
+                <h2>Drop Results file to upload</h2>
+            </div>
+            <div class="dropzone">
+                <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+                <input type="file" accept=".xls,.xlsx" name="file" id="ResultsFileUploaded" onchange="showResultsFileName()" class="upload-input" />
+            </div>
+            <p class="fileName" id="ResultsFileName"> File Name </p>
+            <button type="submit" class="btn" name="uploadButton">Upload File</button>
+            <!--Change this when Sadiya completes code for result/impact etc.-->
+            <br>
+            <label ><a class="info" th:href="@{/result/project}">Results</a></label>
+            </br>
+        </div>
+    </form>
+    <form th:action="@{/upload/impact}" method="post" enctype="multipart/form-data">
+        <div class="box">
+            <div class="title">
+                <h2>Drop Impacts file to upload</h2>
+            </div>
+            <div class="dropzone">
+                <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+                <input type="file" accept=".xls,.xlsx" name="file" id="ImpactsFileUploaded" onchange="showImpactsFileName()" class="upload-input" />
+            </div>
+            <p class="fileName" id="ImpactsFileName"> File Name </p>
+            <button type="submit" class="btn" name="uploadButton">Upload File</button>
+            <br>
+            <label><a class="info" th:href="@{/result/project}">Results</a></label>
+            </br>
+        </div>
+    </form>
+    <form th:action="@{/upload/task}" method="post" enctype="multipart/form-data">
+        <div class="box">
+            <div class="title">
+                <h2>Drop Tasks file to upload</h2>
+            </div>
+            <div class="dropzone">
+                <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+                <input type="file" accept=".xls,.xlsx" name="file" id="TasksFileUploaded" onchange="showTasksFileName()" class="upload-input" />
+            </div>
+            <p class="fileName" id="TasksFileName"> File Name </p>
+            <button type="submit" class="btn" name="uploadButton">Upload File</button>
+            <br>
+            <label><a class="info" th:href="@{/result/project}">Results</a></label>
+            </br>
+        </div>
+    </form>
+    <form th:action="@{/upload/donor}" method="post" enctype="multipart/form-data">
+        <div class="box">
+            <div class="title">
+                <h2>Drop Donors file to upload</h2>
+            </div>
+            <div class="dropzone">
+                <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+                <input type="file" name="file" accept=".xls,.xlsx" id="DonorsFileUploaded" onchange="showDonorsFileName()" class="upload-input" />
+            </div>
+            <p class="fileName" id="DonorsFileName"> File Name </p>
+            <button type="submit" class="btn" name="uploadButton">Upload File</button>
+            <br>
+            <label><a class="info" th:href="@{/result/project}">Results</a></label>
+            </br>
+        </div>
+    </form>
+    <form th:action="@{/upload/contribution}" method="post" enctype="multipart/form-data">
+        <div class="box">
+            <div class="title">
+                <h2>Drop Donor Contribution file to upload</h2>
+            </div>
+            <div class="dropzone">
+                <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+                <input type="file" name="file" accept=".xls,.xlsx" id="DonorsContributionFileUploaded" onchange="showDonorsContributionFileName()" class="upload-input" />
+            </div>
+            <p class="fileName" id="DonorsContributionName"> File Name </p>
+            <button type="submit" class="btn" name="uploadButton">Upload File</button>
+            <br>
+            <label><a class="info" th:href="@{/result/project}">Results</a></label>
+            </br>
+        </div>
+    </form>
+</div>
 </body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+</style>
 </html>
