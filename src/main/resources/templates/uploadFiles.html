@@ -49,7 +49,14 @@
             <label><a th:href="@{/result/impact}">Results</a></label>
         </div>
     </form>
-
+    <form th:action="@{/upload/task}" method="post" enctype="multipart/form-data">
+        <div>
+            <label>Task File: </label>
+            <input type="file" name="task" accept=".xls,.xlsx" >
+            <input type="submit" value="Upload"/>
+            <label><a th:href="@{/result/task}">Results</a></label>
+        </div>
+    </form>
     </div>
 <!--pragun to add error messages if file upload not successful-->
 </body>
