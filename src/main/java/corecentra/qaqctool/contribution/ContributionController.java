@@ -111,7 +111,7 @@ public class ContributionController {
                 isMatch = Arrays.stream(Restriction.values()).anyMatch((t) -> t.name().equalsIgnoreCase(value));
                 break;
             case "payment":
-                isMatch = Arrays.stream(Payment.values()).anyMatch((t) -> t.name().equals(value));
+                isMatch = Arrays.stream(Payment.values()).anyMatch((t) -> t.name().equalsIgnoreCase(value));
                 break;
             default:
                 break;
