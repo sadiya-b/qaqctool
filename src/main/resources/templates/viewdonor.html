@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/styleSheetViewFieldTypePage.css" />
 <head>
     <meta charset="UTF-8">
     <title>donor</title>
 </head>
+<div class="logo">
+    <img src="/Assets/logo.jpeg" width="240px" height="35px">
+</div>
 <body>
-    <table>
-      <tr>
-        <th>Column Name</th>
-        <th>Field Type</th>
-        <th>Limit</th>
-        <th></th>
-      </tr>
-      <tr th:each="don : ${donor}">
-          <td th:text="${don.fieldname}"></td>
-          <td th:text="${don.fieldtype}"></td>
-          <td th:text="${don.fieldlimit}"></td>
-          <td>
-              <form th:action="@{/update/donorfields}" th:object="${donor}" method="post">
-                  <input type="hidden" name="id" th:value="${don.id}">
-                  <input type="hidden" name="fieldname" th:value="${don.fieldname}">
-                  <input type="hidden" name="fieldtype" th:value="${don.fieldtype}">
-                  <input type="hidden" name="fieldlimit" th:value="${don.fieldlimit}">
-                  <button type="submit">Update</button>
-              </form>
-          </td>
-      </tr>
-    </table>
+<div class="content-wrapper">
+    <img src="/Assets/background.jpeg">
+    <div class="tableContainer">
+        <table style="overflow: auto;" class="content-table">
+            <tr>
+                <th>Column Name</th>
+                <th>Field Type</th>
+                <th>Limit</th>
+                <th></th>
+            </tr>
+            </tr>
+            <tr th:each="don : ${donor}">
+                <td th:text="${don.fieldname}"></td>
+                <td th:text="${don.fieldtype}"></td>
+                <td th:text="${don.fieldlimit}"></td>
+                <td>
+                    <form th:action="@{/update/donorfields}" th:object="${donor}" method="post">
+                        <input type="hidden" name="id" th:value="${don.id}">
+                        <input type="hidden" name="fieldname" th:value="${don.fieldname}">
+                        <input type="hidden" name="fieldtype" th:value="${don.fieldtype}">
+                        <input type="hidden" name="fieldlimit" th:value="${don.fieldlimit}">
+                        <button class="btn" type="submit">Update</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <form th:action="@{/fields}">
+        <button type="submit" class="backBtn">Back</button>
+    </form>
+</div>
 </body>
 </html>

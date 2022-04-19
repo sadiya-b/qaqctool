@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/styleSheetViewFieldTypePage.css" />
 <head>
     <meta charset="UTF-8">
     <title>contribution</title>
 </head>
 <body>
-    <table>
-      <tr>
-        <th>Column Name</th>
-        <th>Field Type</th>
-        <th>Limit</th>
-        <th></th>
-      </tr>
-      <tr th:each="contri : ${contribution}">
-          <td th:text="${contri.fieldname}"></td>
-          <td th:text="${contri.fieldtype}"></td>
-          <td th:text="${contri.fieldlimit}"></td>
-          <td>
-              <form th:action="@{/update/resultfields}" th:object="${contribution}" method="post">
-                  <input type="hidden" name="id" th:value="${contri.id}">
-                  <input type="hidden" name="fieldname" th:value="${contri.fieldname}">
-                  <input type="hidden" name="fieldtype" th:value="${contri.fieldtype}">
-                  <input type="hidden" name="fieldlimit" th:value="${contri.fieldlimit}">
-                  <button type="submit">Update</button>
-              </form>
-          </td>
-      </tr>
-    </table>
+<div class="content-wrapper">
+    <img src="/Assets/background.jpeg">
+    <div class="tableContainer">
+        <table style="overflow: auto;" class="content-table">
+            <tr>
+                <th>Column Name</th>
+                <th>Field Type</th>
+                <th>Limit</th>
+                <th></th>
+            </tr>
+            <tr th:each="contri : ${contribution}">
+                <td th:text="${contri.fieldname}"></td>
+                <td th:text="${contri.fieldtype}"></td>
+                <td th:text="${contri.fieldlimit}"></td>
+                <td>
+                    <form th:action="@{/update/resultfields}" th:object="${contribution}" method="post">
+                        <input type="hidden" name="id" th:value="${contri.id}">
+                        <input type="hidden" name="fieldname" th:value="${contri.fieldname}">
+                        <input type="hidden" name="fieldtype" th:value="${contri.fieldtype}">
+                        <input type="hidden" name="fieldlimit" th:value="${contri.fieldlimit}">
+                        <button class="btn" type="submit">Update</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <form th:action="@{/fields}">
+        <button type="submit" class="backBtn">Back</button>
+    </form>
+</div>
 </body>
 </html>
