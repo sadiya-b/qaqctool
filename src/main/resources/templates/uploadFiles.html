@@ -42,11 +42,8 @@
 </div>
 <div class="content-wrapper">
     <img src="./Assets/background.jpeg">
-</div>
-
-<div>
     <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out" class="rBtn">Sign Out</input>
+        <button type="submit" class="rBtn">Sign Out</button>
     </form>
 </div>
 
@@ -91,7 +88,6 @@
             </div>
             <p class="fileName" id="ResultsFileName"> File Name </p>
             <button type="submit" class="btn" name="uploadButton">Upload File</button>
-            <!--Change this when Sadiya completes code for result/impact etc.-->
             <br>
             <label ><a class="info" th:href="@{/result/result}">Results</a></label>
             </br>
