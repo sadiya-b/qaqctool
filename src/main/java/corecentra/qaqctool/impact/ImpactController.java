@@ -90,7 +90,7 @@ public class ImpactController {
                 isMatch = false;
                 if(value.contains("."))
                 {
-                    String[] splitNum = value.split(".");
+                    String[] splitNum = value.split("\\.");
                     if(splitNum[1].length()<=2){
                         if(splitNum[0].replace(",","").matches("[0-9]+")){
                             isMatch = true;
