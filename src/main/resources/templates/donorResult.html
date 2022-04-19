@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result Donor</title>
+</head>
+<body>
+<h3> Donor result page</h3>
+
+<table>
+    <tr>
+        <th>Column</th>
+        <th>Row</th>
+        <th>Description</th>
+    </tr>
+    <tr th:each="donor : ${error}">
+        <td th:text="${donor.columnName}"></td>
+        <td th:text="${donor.rowNumber}"></td>
+        <td th:text="${donor.errorMessage}"></td>
+    </tr>
+    </table>
+</body>
+</html>
