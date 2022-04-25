@@ -30,12 +30,20 @@
             var fileName = document.getElementById("DonorsContributionFileUploaded");
             document.getElementById("DonorsContributionName").textContent = fileName.files.item(0).name;
         }
+        function displayMessageIfNeeded() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const message = urlParams.get('Alert');
+            if (message != null) {
+                alert(message)
+            }
+        }
  </script>
 <head>
     <meta charset="UTF-8">
     <title>ID check</title>
 </head>
-<body>
+<body onload="displayMessageIfNeeded()">
 
 <div class="logo">
     <img src="./Assets/logo.jpeg" width="240px" height="35px">
