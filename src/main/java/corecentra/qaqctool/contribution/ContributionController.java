@@ -238,7 +238,7 @@ public class ContributionController {
             int index = 0;
             for(ContributionLookup i: requiredFieldData){
                 if(!contains(lookupData,i)){
-                    result.add(new CustomError("",index,"Please check lookup data"));
+                    result.add(new CustomError("",index+1,"Please check lookup data"));
                 }
                 index++;
             }

@@ -56,6 +56,19 @@
 </div>
 
 <div class="box-container">
+    <div class="box">
+        <div class="title">
+            <h2>Download Lookup Schema</h2>
+        </div>
+        <div class="dropzone">
+            <img src="./Assets/download.jpeg" class="upload-icon"/>
+        </div>
+        <button class="btn">
+            <a th:href="@{/lookup/download}">Download</a>
+        </button>
+
+    </div>
+
     <form th:action="@{/upload/lookup}" method="post" enctype="multipart/form-data">
         <div class="box">
             <div class="title">

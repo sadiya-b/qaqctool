@@ -35,7 +35,7 @@
     font-family: "Open Sans", Helvetica, sans-serif;
 }
 
-.link {
+.labelLink {
     height: 30px;
     color: #3E6286;
     font-size: 24px;
@@ -54,4 +54,7 @@
 	font-size: 15px;
 	top:20px;
     right:20px;
+}
+a:link {
+  color: white;
 }

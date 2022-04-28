@@ -126,3 +126,10 @@ h2 {
     left: 1%;
     z-index: 1;
 }
+a:link {
+  color: white;
+
+}
+a:visited {
+  color: white;
+}

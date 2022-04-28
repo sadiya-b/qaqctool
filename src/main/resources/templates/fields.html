@@ -12,16 +12,18 @@
 <div class="content-wrapper">
     <img src="/Assets/background.jpeg">
         <div class="mainHeading">
-            <h3><a class="link" th:href = "@{/viewproject}">Project Fields</a></h3>
-            <h3><a class="link" th:href = "@{/viewresult}">Result Fields</a></h3>
-            <h3><a class="link" th:href = "@{/viewimpact}">Impacts Fields</a></h3>
-            <h3><a class="link" th:href = "@{/viewtask}">Task Fields</a></h3>
-            <h3><a class="link" th:href = "@{/viewdonor}">Donors Fields</a></h3>
-            <h3><a class="link" th:href = "@{/viewcontribution}">Contribution Fields</a></h3>
+            <h3><a class="labelLink" th:href = "@{/viewproject}">Project Fields</a></h3>
+            <h3><a class="labelLink" th:href = "@{/viewresult}">Result Fields</a></h3>
+            <h3><a class="labelLink" th:href = "@{/viewimpact}">Impacts Fields</a></h3>
+            <h3><a class="labelLink" th:href = "@{/viewtask}">Task Fields</a></h3>
+            <h3><a class="labelLink" th:href = "@{/viewdonor}">Donors Fields</a></h3>
+            <h3><a class="labelLink" th:href = "@{/viewcontribution}">Contribution Fields</a></h3>
         </div>
-    <form th:action="@{/index}">
-        <button type="submit" class="backBtn">Back</button>
-    </form>
+
+    <button class="backBtn">
+        <a th:href="@{/index}">Back</a>
+    </button>
+
 </div>
 </body>
 </html>

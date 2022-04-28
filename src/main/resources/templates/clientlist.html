@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/styleSheetAllResultsPage.css" />
 <head>
     <meta charset="UTF-8">
     <title>Client List</title>
 </head>
 <body>
-<div class="container text-center">
-    <div>
-        <h1>List of Users</h1>
+<div class="logo">
+    <img src="/Assets/logo.jpeg" width="240px" height="35px">
+</div>
+<div class="content-wrapper">
+    <img src="/Assets/background.jpeg">
+    <div class="mainHeading">
+        <h3> List of Clients </h3>
     </div>
 
-    <div>
-        <table class="table table-striped table-bordered">
+    <div class="tableContainer">
+        <table style="overflow: auto;" class="content-table">
             <thead class="thead-dark">
             <tr>
                 <th>User ID</th>

@@ -20,6 +20,64 @@
             <button class="btn" type="submit">Update</button>
         </form>
     </div>
+    <div class="tableContainer">
+        <table style="overflow: auto;" class="content-table">
+            <tr>
+                <th>Field</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>
+                    digit
+                </td>
+                <td>
+                    If your data should only have numbers.
+                    Example column - Reporting Year
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    date
+                </td>
+                <td>
+                    If you want to check if date is in valid date format: MM/DD/YYYY or M/D/YY
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    decimal
+                </td>
+                <td>
+                    This check if your format is a number with
+                    2 digits after the decimal point.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    restriction
+                </td>
+                <td>
+                    If data will contain one of the following:
+                    Unspecified,
+                    Restricted,
+                    Unrestricted
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    payment
+                </td>
+                <td>
+                    If data will contain one of the following:
+                    CheckCashMoney,
+                    OnlinePayment,
+                    TextGiving,
+                    WireTransfer,
+                    PaymentTransferApp
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 </body>
 </html>
