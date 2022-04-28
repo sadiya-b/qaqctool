@@ -56,6 +56,13 @@
 </div>
 
 <div class="box-container">
+    <!--pragun:: sucess = green, alert = red : add to CSS -->
+    <div class="sucess" th:if="${Success}">
+        <label th:text="${Success}"/>
+    </div>
+    <div class="alert" th:if="${Alert}">
+        <label th:text="${Alert}"/>
+    </div>
     <div class="box">
         <div class="title">
             <h2>Download Lookup Schema</h2>

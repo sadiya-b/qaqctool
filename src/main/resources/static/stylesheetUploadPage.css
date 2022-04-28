@@ -126,6 +126,13 @@ h2 {
     left: 1%;
     z-index: 1;
 }
+.alert{
+    position: relative;
+	width: 140px;
+	height: 40px;
+	font-size: 15px;
+	z-index: 1;
+}
 a:link {
   color: white;
 
