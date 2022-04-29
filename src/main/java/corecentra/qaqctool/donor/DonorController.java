@@ -188,17 +188,17 @@ public class DonorController {
                             case 0:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(cellValue.length()>fieldLimit){
-                                        result.add(new CustomError(columnName,rowNum,"char limit"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s field can not exceed %s chars.", columnName, fieldLimit)));
                                     }
                                 }
                                 break;
                             case 1:
                                 if(cellValue.isEmpty() || cellValue.isBlank()){
-                                    result.add(new CustomError(columnName,rowNum,"required field blank"));
+                                    result.add(new CustomError(columnName,rowNum,String.format("%s field is blank, %s is a required field.", columnName, columnName)));
                                 }
                                 else {
                                     if (cellValue.length()>fieldLimit) {
-                                        result.add(new CustomError(columnName,rowNum,"char limit"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s field can not exceed %s chars.", columnName, fieldLimit)));
                                     }
                                 }
                                 break;
@@ -206,14 +206,14 @@ public class DonorController {
                             case 3:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(!checkRegex(fieldtype,cellValue) || cellValue.length()>fieldLimit){
-                                        result.add(new CustomError(columnName,rowNum," incorrect Date"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s has incorrect date format.", columnName)));
                                     }
                                 }
                             case 4:
                             case 20:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(!checkRegex(fieldtype,cellValue) || cellValue.length()>fieldLimit){
-                                        result.add(new CustomError(columnName,rowNum," incorrect phone"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s has incorrect phone format.", columnName)));
                                     }
                                 }
                             case 5:
@@ -230,7 +230,7 @@ public class DonorController {
                             case 18:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(cellValue.length()>fieldLimit){
-                                        result.add(new CustomError(columnName,rowNum,"char limit"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s field can not exceed %s chars.", columnName, fieldLimit)));
                                     }
                                 }
                                 break;
@@ -239,8 +239,11 @@ public class DonorController {
                             case 19:
                                 //zip code
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
-                                    if(!checkRegex(fieldtype,cellValue) || cellValue.length()>fieldLimit){
-                                        result.add(new CustomError(columnName,rowNum," incorrect field type or limit"));
+                                    if (checkRegex(fieldtype,cellValue) && cellValue.length() > fieldLimit) {
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s field can not exceed %s chars.", columnName, fieldLimit)));
+                                    }
+                                    if(!checkRegex(fieldtype,cellValue)){
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s has incorrect field type.", columnName)));
                                     }
                                 }
                                 break;

@@ -168,11 +168,11 @@ public class TaskController {
                             case 1:
                             case 3:
                                 if(cellValue.isEmpty() || cellValue.isBlank()){
-                                    result.add(new CustomError(columnName,rowNum,"required field blank"));
+                                    result.add(new CustomError(columnName,rowNum,String.format("%s field is blank, %s is a required field.", columnName, columnName)));
                                 }
                                 else {
                                     if (cellValue.length()>fieldLimit) {
-                                        result.add(new CustomError(columnName,rowNum,"char limit"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s field can not exceed %s chars.", columnName, fieldLimit )));
                                     }
                                 }
                                 break;
@@ -180,14 +180,14 @@ public class TaskController {
                             case 4:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(!checkRegex("digit",cellValue)){
-                                        result.add(new CustomError(columnName,rowNum," should be digit"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s must be a digit value.", columnName)));
                                     }
                                 }
                                 break;
                             case 5:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(cellValue.length()>fieldLimit){
-                                        result.add(new CustomError(columnName,rowNum," limit char"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s field can not exceed %s chars.", columnName, fieldLimit)));
                                     }
                                 }
                                 break;
@@ -195,7 +195,7 @@ public class TaskController {
                             case 7:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(!checkRegex(fieldtype,cellValue) || cellValue.length()>fieldLimit){
-                                        result.add(new CustomError(columnName,rowNum," incorrect Date"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s has incorrect date format.", columnName)));
                                     }
                                 }
                                 break;

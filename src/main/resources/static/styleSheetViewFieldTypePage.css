@@ -99,3 +99,9 @@
 	top:20px;
     right:20px;
 }
+
+.link {
+    height: 30px;
+    color: white;
+    font-family: "Open Sans", Helvetica, sans-serif;
+}

@@ -174,32 +174,35 @@ public class ContributionController {
                             case 0:
                             case 1:
                                 if(cellValue.isEmpty() || cellValue.isBlank()){
-                                    result.add(new CustomError(columnName,rowNum,"required field blank"));
+                                    result.add(new CustomError(columnName,rowNum,String.format("%s field is blank, %s is a required field.", columnName, columnName)));
                                 }
                                 else {
                                     if (cellValue.length()>fieldLimit) {
-                                        result.add(new CustomError(columnName,rowNum,"char limit"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s field can not exceed %s chars.", columnName, fieldLimit)));
                                     }
                                 }
                                 break;
                             case 2:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(!checkRegex(fieldtype,cellValue)){
-                                        result.add(new CustomError(columnName,rowNum," not digit"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s must be a digit value.", columnName)));
                                     }
                                 }
                                 break;
                             case 3:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
-                                    if(!checkRegex(fieldtype,cellValue) || cellValue.length()>fieldLimit){
-                                        result.add(new CustomError(columnName,rowNum," should be digit"));
+                                    if(!checkRegex(fieldtype,cellValue)){
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s must be a digit value.", columnName)));
+                                    }
+                                    if (checkRegex(fieldtype,cellValue) && cellValue.length() > fieldLimit) {
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s field can not exceed %s chars.", columnName, fieldLimit)));
                                     }
                                 }
                                 break;
                             case 4:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(!checkRegex(fieldtype,cellValue) || cellValue.length()>fieldLimit){
-                                        result.add(new CustomError(columnName,rowNum," decimal format"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s must be a decimal format value.", columnName)));
                                     }
                                 }
                                 break;
@@ -207,14 +210,14 @@ public class ContributionController {
                             case 6:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(!checkRegex(fieldtype,cellValue) || cellValue.length()>fieldLimit){
-                                        result.add(new CustomError(columnName,rowNum," incorrect Date"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s has incorrect date format.", columnName)));
                                     }
                                 }
                                 break;
                             case 7:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(cellValue.length()>fieldLimit){
-                                        result.add(new CustomError(columnName,rowNum," limit"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s field can not exceed %s chars.", columnName, fieldLimit)));
                                     }
                                 }
                                 break;
@@ -222,7 +225,7 @@ public class ContributionController {
                             case 9:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(!checkRegex(fieldtype,cellValue)){
-                                        result.add(new CustomError(columnName,rowNum," enum error"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s has enum error.", columnName)));
                                     }
                                 }
                                 break;
