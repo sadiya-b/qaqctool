@@ -67,7 +67,11 @@ public class ResultController {
                     String abc = df.formatCellValue(cell);
                     return abc;
                 }
-                return cell.getNumericCellValue();
+                else{
+                    cell.setCellType(CellType.STRING);
+                    return cell.getStringCellValue();
+                }
+                //return cell.getNumericCellValue();
         }
 
         return "";
@@ -186,14 +190,14 @@ public class ResultController {
                                 break;
                             case 5:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
-                                    if(!checkRegex("decimal",cellValue) || cellValue.length()>fieldLimit){
+                                    if(!checkRegex(fieldtype,cellValue) || cellValue.length()>fieldLimit){
                                         result.add(new CustomError(columnName,rowNum,String.format("%s must be a decimal format value.", columnName)));
                                     }
                                 }
                                 break;
                             case 6:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
-                                    if(!checkRegex(fieldtype,cellValue) || cellValue.length()>4){
+                                    if(!checkRegex(fieldtype,cellValue) || cellValue.length()>fieldLimit){
                                         result.add(new CustomError(columnName,rowNum,String.format("%s must be a digit value.", columnName)));
                                     }
                                 }
@@ -217,7 +221,7 @@ public class ResultController {
             int index = 0;
             for(ResultLookup i: requiredFieldData){
                 if(!contains(lookupData,i)){
-                    result.add(new CustomError("",index,"Please check lookup data"));
+                    result.add(new CustomError("",index+1,"Please check lookup data"));
                 }
                 index++;
             }

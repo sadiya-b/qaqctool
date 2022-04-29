@@ -68,7 +68,11 @@ public class ContributionController {
                     String abc = df.formatCellValue(cell);
                     return abc;
                 }
-                return cell.getNumericCellValue();
+                else{
+                    cell.setCellType(CellType.STRING);
+                    return cell.getStringCellValue();
+                }
+                //return cell.getNumericCellValue();
         }
 
         return "";

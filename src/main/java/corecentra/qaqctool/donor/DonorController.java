@@ -66,7 +66,11 @@ public class DonorController {
                     String abc = df.formatCellValue(cell);
                     return abc;
                 }
-                return cell.getNumericCellValue();
+                else{
+                    cell.setCellType(CellType.STRING);
+                    return cell.getStringCellValue();
+                }
+                //return cell.getNumericCellValue();
         }
 
         return "";
@@ -259,7 +263,7 @@ public class DonorController {
             int index = 0;
             for(DonorLookup i: requiredFieldData){
                 if(!contains(lookupData,i)){
-                    result.add(new CustomError("",index,"Please check lookup data"));
+                    result.add(new CustomError("",index+1,"Please check lookup data"));
                 }
                 index++;
             }
