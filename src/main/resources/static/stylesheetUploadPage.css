@@ -153,6 +153,7 @@ h2 {
     left: 1%;
     z-index: 1;
 }
+
 .alert {
     text-align: center;
     color: #ff0000;
@@ -167,12 +168,4 @@ h2 {
     margin-top: 1px;
     font-size: 32px;
     font-family: "Open Sans", Helvetica, sans-serif;
-}
-
-a:link {
-  color: white;
-
-}
-a:visited {
-  color: white;
 }
