@@ -7,7 +7,7 @@
 }
 
 .box-container {
-    margin-top: 5%;
+    margin-top: 8%;
     width: 100%;
     height: auto;
     display: flex;
@@ -74,6 +74,14 @@ h2 {
 	opacity: 0;
 }
 
+.download-icon {
+   position: relative;
+   top: 15px;
+   left: 0;
+   width: 120px;
+   height: 78px;
+}
+
 .btn {
 	position: relative;
 	width: 140px;
@@ -84,6 +92,19 @@ h2 {
 	border: 0;
 	transition: all 0.3s ease-in-out;
 	font-size: 15px;
+}
+
+.downloadBtn {
+	position: relative;
+	width: 140px;
+	height: 40px;
+	background: #3E6286;
+	color: white;
+	border-radius: 3px;
+	border: 0;
+	transition: all 0.3s ease-in-out;
+	font-size: 15px;
+	top: 92px;
 }
 
 .rBtn {
@@ -120,19 +141,34 @@ h2 {
     position: absolute;
 }
 
+.headerAlert {
+    text-align: center;
+    position: relative;
+    top: 100px;
+}
+
 .logo {
     position: absolute;
     top: 3%;
     left: 1%;
     z-index: 1;
 }
-.alert{
-    position: relative;
-	width: 140px;
-	height: 40px;
-	font-size: 15px;
-	z-index: 1;
+.alert {
+    text-align: center;
+    color: #ff0000;
+    margin-top: 1px;
+    font-size: 32px;
+    font-family: "Open Sans", Helvetica, sans-serif;
 }
+
+.success {
+    text-align: center;
+    color: #32b200;
+    margin-top: 1px;
+    font-size: 32px;
+    font-family: "Open Sans", Helvetica, sans-serif;
+}
+
 a:link {
   color: white;
 

@@ -11,17 +11,17 @@
 </div>
 <div class="content-wrapper">
     <img src="/Assets/background.jpeg">
-    <div class="mainHeading">
-        <form th:action="@{/resultUpdate}" th:object="${result}" method="post">
-            <input type="hidden" name="id" th:value="${result.id}">
-            <input type ="text" name="fieldname" th:value="${result.fieldname}" />
-            <input type="text" name="fieldtype" th:value="${result.fieldtype}">
-            <input type="text" name="fieldlimit" th:value="${result.fieldlimit}">
-            <button class="btn" type="submit">Update</button>
-        </form>
-    </div>
-    <!--pragun:: check table position, for every {workbook}Update -->
-    <div class="tableContainer">
+</div>
+<div class="mainHeading">
+    <form th:action="@{/resultUpdate}" th:object="${result}" method="post">
+        <input type="hidden" name="id" th:value="${result.id}">
+        <input type ="text" name="fieldname" th:value="${result.fieldname}" />
+        <input type="text" name="fieldtype" th:value="${result.fieldtype}">
+        <input type="text" name="fieldlimit" th:value="${result.fieldlimit}">
+        <button class="btn" type="submit">Update</button>
+    </form>
+</div>
+<div class="tableContainer">
         <table style="overflow: auto;" class="content-table">
             <tr>
                 <th>Field</th>
@@ -55,6 +55,5 @@
             </tr>
         </table>
     </div>
-</div>
 </body>
 </html>

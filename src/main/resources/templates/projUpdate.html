@@ -11,49 +11,49 @@
 </div>
 <div class="content-wrapper">
     <img src="/Assets/background.jpeg">
-    <div class="mainHeading">
-        <form th:action="@{/projUpdate}" th:object="${project}" method="post">
-            <input type="hidden" name="id" th:value="${project.id}">
-            <input type = "text" name="fieldname" th:value="${project.fieldname}" />
-            <input type="text" name="fieldtype" th:value="${project.fieldtype}">
-            <input type="text" name="fieldlimit" th:value="${project.fieldlimit}">
-            <button class="btn" type="submit">Update</button>
-        </form>
-    </div>
-    </div>
-    <div class="tableContainer">
-        <table style="overflow: auto;" class="content-table">
-            <tr>
-                <th>Field</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td>
-                    digit
-                </td>
-                <td>
-                    If your data should only have numbers.
-                    Example column - Reporting Year
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    date
-                </td>
-                <td>
-                   If you want to check if date is in valid date format: MM/DD/YYYY or M/D/YY
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    decimal
-                </td>
-                <td>
-                    This check if your format is a number with
-                    2 digits after the decimal point.
-                </td>
-            </tr>
-        </table>
-    </div>
+</div>
+<div class="mainHeading">
+    <form th:action="@{/projUpdate}" th:object="${project}" method="post">
+        <input type="hidden" name="id" th:value="${project.id}">
+        <input type = "text" name="fieldname" th:value="${project.fieldname}" />
+        <input type="text" name="fieldtype" th:value="${project.fieldtype}">
+        <input type="text" name="fieldlimit" th:value="${project.fieldlimit}">
+        <button class="btn" type="submit">Update</button>
+    </form>
+</div>
+<div class="tableContainer">
+    <table style="overflow: auto;" class="content-table">
+        <tr>
+            <th>Field</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+                digit
+            </td>
+            <td>
+                If your data should only have numbers.
+                Example column - Reporting Year
+            </td>
+        </tr>
+        <tr>
+            <td>
+                date
+            </td>
+            <td>
+                If you want to check if date is in valid date format: MM/DD/YYYY or M/D/YY
+            </td>
+        </tr>
+        <tr>
+            <td>
+                decimal
+            </td>
+            <td>
+                This check if your format is a number with
+                2 digits after the decimal point.
+            </td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>

@@ -169,39 +169,39 @@ public class ResultController {
                             case 2:
                             case 3:
                                 if(cellValue.isEmpty() || cellValue.isBlank()){
-                                    result.add(new CustomError(columnName,rowNum,"project id blank"));
+                                    result.add(new CustomError(columnName,rowNum,String.format("%s field is blank, %s is a required field.", columnName, columnName)));
                                 }
                                 else {
                                     if (cellValue.length()>fieldLimit) {
-                                        result.add(new CustomError(columnName,rowNum,"char limit"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s field can not exceed %s chars.", columnName, fieldLimit)));
                                     }
                                 }
                                 break;
                             case 4:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(cellValue.length()>fieldLimit){
-                                        result.add(new CustomError(columnName,rowNum,"limit check"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s field can not exceed %s chars.", columnName, fieldLimit)));
                                     }
                                 }
                                 break;
                             case 5:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(!checkRegex("decimal",cellValue) || cellValue.length()>fieldLimit){
-                                        result.add(new CustomError(columnName,rowNum," decimal format"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s must be a decimal format value.", columnName)));
                                     }
                                 }
                                 break;
                             case 6:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(!checkRegex(fieldtype,cellValue) || cellValue.length()>4){
-                                        result.add(new CustomError(columnName,rowNum," should be digit"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s must be a digit value.", columnName)));
                                     }
                                 }
                                 break;
                             case 7:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(!checkRegex(fieldtype,cellValue) || cellValue.length()>fieldLimit){
-                                        result.add(new CustomError(columnName,rowNum," incorrect Date"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s has incorrect date format.", columnName)));
                                     }
                                 }
                                 break;

@@ -58,9 +58,8 @@ public class FileUploadController {
     @PostMapping("/upload/lookup")
     public RedirectView uploadLookup(@RequestParam("lookupfile") MultipartFile file, RedirectAttributes redirectAttribute, Model model) throws IOException{
 
-        //pragun - change all addAttributes to addFlashAttributes
         if (file.isEmpty()) {
-            redirectAttribute.addAttribute("Alert", "Empty File");
+            redirectAttribute.addFlashAttribute("Alert", "Empty File");
             return new RedirectView("/uploadFiles",true);
         }
 
@@ -68,8 +67,7 @@ public class FileUploadController {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(fileLocation + file.getName().concat("_"+getCurrentUser()).concat(".xlsx"));
             Files.write(path, bytes);
-            //pragun - change all successfull message attribure names to sucess and keep incorrect as it is.
-            redirectAttribute.addFlashAttribute("Alert", "Successfully uploaded '" + file.getOriginalFilename() + "'");
+            redirectAttribute.addFlashAttribute("Success", "Successfully uploaded '" + file.getOriginalFilename() + "'");
         } catch (IOException ioException) {
             redirectAttribute.addFlashAttribute("Alert", "Upload failed'" + file.getOriginalFilename() + "'");
             ioException.printStackTrace();
@@ -95,7 +93,7 @@ public class FileUploadController {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(fileLocation + file.getName().concat("_"+getCurrentUser()).concat(".xlsx"));
             Files.write(path, bytes);
-            redirectAttribute.addFlashAttribute("Alert", "Successfully uploaded '" + file.getOriginalFilename() + "'");
+            redirectAttribute.addFlashAttribute("Success", "Successfully uploaded '" + file.getOriginalFilename() + "'");
         } catch (IOException ioException) {
             redirectAttribute.addFlashAttribute("Alert", "Upload failed'" + file.getOriginalFilename() + "'");
             ioException.printStackTrace();
@@ -108,12 +106,12 @@ public class FileUploadController {
     public RedirectView uploadResult(@RequestParam("result") MultipartFile file, RedirectAttributes redirectAttribute, Model model) throws IOException{
 
         if(!isLookupUploaded(String.format("lookupfile".concat("_"+getCurrentUser()).concat(".xlsx")))){
-            redirectAttribute.addAttribute("Alert", "Lookup File doesn't exist. Please Upload lookup file before proceeding");
+            redirectAttribute.addFlashAttribute("Alert", "Lookup File doesn't exist. Please Upload lookup file before proceeding");
             return new RedirectView("/uploadFiles",true);
         }
 
         if (file.isEmpty()) {
-            redirectAttribute.addAttribute("Alert", "Empty File");
+            redirectAttribute.addFlashAttribute("Alert", "Empty File");
             return new RedirectView("/uploadFiles",true);
         }
 
@@ -121,9 +119,9 @@ public class FileUploadController {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(fileLocation + file.getName().concat("_"+getCurrentUser()).concat(".xlsx"));
             Files.write(path, bytes);
-            redirectAttribute.addAttribute("Alert", "Successfully uploaded '" + file.getOriginalFilename() + "'");
+            redirectAttribute.addFlashAttribute("Success", "Successfully uploaded '" + file.getOriginalFilename() + "'");
         } catch (IOException ioException) {
-            redirectAttribute.addAttribute("Alert", "Upload failed'" + file.getOriginalFilename() + "'");
+            redirectAttribute.addFlashAttribute("Alert", "Upload failed'" + file.getOriginalFilename() + "'");
             ioException.printStackTrace();
         }
 
@@ -134,12 +132,12 @@ public class FileUploadController {
     public RedirectView uploadImpact(@RequestParam("impact") MultipartFile file, RedirectAttributes redirectAttribute, Model model) throws IOException{
 
         if(!isLookupUploaded(String.format("lookupfile".concat("_"+getCurrentUser()).concat(".xlsx")))){
-            redirectAttribute.addAttribute("Alert", "Lookup File doesn't exist. Please Upload lookup file before proceeding");
+            redirectAttribute.addFlashAttribute("Alert", "Lookup File doesn't exist. Please Upload lookup file before proceeding");
             return new RedirectView("/uploadFiles",true);
         }
 
         if (file.isEmpty()) {
-            redirectAttribute.addAttribute("Alert", "Empty File");
+            redirectAttribute.addFlashAttribute("Alert", "Empty File");
             return new RedirectView("/uploadFiles",true);
         }
 
@@ -147,9 +145,9 @@ public class FileUploadController {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(fileLocation + file.getName().concat("_"+getCurrentUser()).concat(".xlsx"));
             Files.write(path, bytes);
-            redirectAttribute.addAttribute("Alert", "Successfully uploaded '" + file.getOriginalFilename() + "'");
+            redirectAttribute.addFlashAttribute("Success", "Successfully uploaded '" + file.getOriginalFilename() + "'");
         } catch (IOException ioException) {
-            redirectAttribute.addAttribute("Alert", "Upload failed'" + file.getOriginalFilename() + "'");
+            redirectAttribute.addFlashAttribute("Alert", "Upload failed'" + file.getOriginalFilename() + "'");
             ioException.printStackTrace();
         }
 
@@ -160,12 +158,12 @@ public class FileUploadController {
     public RedirectView uploadTask(@RequestParam("task") MultipartFile file, RedirectAttributes redirectAttribute, Model model) throws IOException{
 
         if(!isLookupUploaded(String.format("lookupfile".concat("_"+getCurrentUser()).concat(".xlsx")))){
-            redirectAttribute.addAttribute("Alert", "Lookup File doesn't exist. Please Upload lookup file before proceeding");
+            redirectAttribute.addFlashAttribute("Alert", "Lookup File doesn't exist. Please Upload lookup file before proceeding");
             return new RedirectView("/uploadFiles",true);
         }
 
         if (file.isEmpty()) {
-            redirectAttribute.addAttribute("Alert", "Empty File");
+            redirectAttribute.addFlashAttribute("Alert", "Empty File");
             return new RedirectView("/uploadFiles",true);
         }
 
@@ -173,9 +171,9 @@ public class FileUploadController {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(fileLocation + file.getName().concat("_"+getCurrentUser()).concat(".xlsx"));
             Files.write(path, bytes);
-            redirectAttribute.addAttribute("Alert", "Successfully uploaded '" + file.getOriginalFilename() + "'");
+            redirectAttribute.addFlashAttribute("Success", "Successfully uploaded '" + file.getOriginalFilename() + "'");
         } catch (IOException ioException) {
-            redirectAttribute.addAttribute("Alert", "Upload failed'" + file.getOriginalFilename() + "'");
+            redirectAttribute.addFlashAttribute("Alert", "Upload failed'" + file.getOriginalFilename() + "'");
             ioException.printStackTrace();
         }
 
@@ -186,12 +184,12 @@ public class FileUploadController {
     public RedirectView uploadDonor(@RequestParam("donor") MultipartFile file, RedirectAttributes redirectAttribute, Model model) throws IOException{
 
         if(!isLookupUploaded(String.format("lookupfile".concat("_"+getCurrentUser()).concat(".xlsx")))){
-            redirectAttribute.addAttribute("Alert", "Lookup File doesn't exist. Please Upload lookup file before proceeding");
+            redirectAttribute.addFlashAttribute("Alert", "Lookup File doesn't exist. Please Upload lookup file before proceeding");
             return new RedirectView("/uploadFiles",true);
         }
 
         if (file.isEmpty()) {
-            redirectAttribute.addAttribute("Alert", "Empty File");
+            redirectAttribute.addFlashAttribute("Alert", "Empty File");
             return new RedirectView("/uploadFiles",true);
         }
 
@@ -199,9 +197,9 @@ public class FileUploadController {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(fileLocation + file.getName().concat("_"+getCurrentUser()).concat(".xlsx"));
             Files.write(path, bytes);
-            redirectAttribute.addAttribute("Alert", "Successfully uploaded '" + file.getOriginalFilename() + "'");
+            redirectAttribute.addFlashAttribute("Success", "Successfully uploaded '" + file.getOriginalFilename() + "'");
         } catch (IOException ioException) {
-            redirectAttribute.addAttribute("Alert", "Upload failed'" + file.getOriginalFilename() + "'");
+            redirectAttribute.addFlashAttribute("Alert", "Upload failed'" + file.getOriginalFilename() + "'");
             ioException.printStackTrace();
         }
 
@@ -212,12 +210,12 @@ public class FileUploadController {
     public RedirectView uploadContribution(@RequestParam("contribution") MultipartFile file, RedirectAttributes redirectAttribute, Model model) throws IOException{
 
         if(!isLookupUploaded(String.format("lookupfile".concat("_"+getCurrentUser()).concat(".xlsx")))){
-            redirectAttribute.addAttribute("Alert", "Lookup File doesn't exist. Please Upload lookup file before proceeding");
+            redirectAttribute.addFlashAttribute("Alert", "Lookup File doesn't exist. Please Upload lookup file before proceeding");
             return new RedirectView("/uploadFiles",true);
         }
 
         if (file.isEmpty()) {
-            redirectAttribute.addAttribute("Alert", "Empty File");
+            redirectAttribute.addFlashAttribute("Alert", "Empty File");
             return new RedirectView("/uploadFiles",true);
         }
 
@@ -225,9 +223,9 @@ public class FileUploadController {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(fileLocation + file.getName().concat("_"+getCurrentUser()).concat(".xlsx"));
             Files.write(path, bytes);
-            redirectAttribute.addAttribute("Alert", "Successfully uploaded '" + file.getOriginalFilename() + "'");
+            redirectAttribute.addFlashAttribute("Success", "Successfully uploaded '" + file.getOriginalFilename() + "'");
         } catch (IOException ioException) {
-            redirectAttribute.addAttribute("Alert", "Upload failed'" + file.getOriginalFilename() + "'");
+            redirectAttribute.addFlashAttribute("Alert", "Upload failed'" + file.getOriginalFilename() + "'");
             ioException.printStackTrace();
         }
 

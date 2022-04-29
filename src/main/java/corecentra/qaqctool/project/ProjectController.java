@@ -165,11 +165,11 @@ public class ProjectController {
                         switch (col) {
                             case 0:
                                 if(cellValue.isEmpty() || cellValue.isBlank()){
-                                    result.add(new CustomError(columnName,rowNum,"NodeID blank"));
+                                    result.add(new CustomError(columnName,rowNum,String.format("%s field is blank, %s is a required field.", columnName, columnName)));
                                 }
                                 else {
                                     if (!checkRegex(fieldtype, nextCell.getStringCellValue())) {
-                                        result.add(new CustomError(columnName,rowNum,"NodeID digit"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s must be a digit value.", columnName)));
                                     }
                                 }
                                 break;
@@ -179,19 +179,18 @@ public class ProjectController {
                             case 4:
                             case 5:
                                 if(cellValue.isEmpty() || cellValue.isBlank()) {
-                                    result.add(new CustomError(columnName,rowNum," blank"));
+                                    result.add(new CustomError(columnName,rowNum,String.format("%s field is blank, %s is a required field.", columnName, columnName)));
                                 }
                                 else{
                                     if(cellValue.length()>fieldLimit){
-                                        //pragun - format error message to map to column name and field limit
-                                        result.add(new CustomError(columnName,rowNum," char limit"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s field can not exceed %s chars.", columnName, fieldLimit)));
                                     }
                                 }
                                 break;
                             case 6:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(!checkRegex(fieldtype,cellValue) || cellValue.length()>4){
-                                        result.add(new CustomError(columnName,rowNum," should be digit"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s must be a digit value.", columnName)));
                                     }
                                 }
                                 break;
@@ -200,14 +199,14 @@ public class ProjectController {
                                 //this should be a decimal, we need to first remove any additional characters, convert to decimal.
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(!checkRegex("decimal",cellValue) || cellValue.length()>fieldLimit){
-                                        result.add(new CustomError(columnName,rowNum," decimal format"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s must be a decimal format value.", columnName)));
                                     }
                                 }
                                 break;
                             case 18:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(!checkRegex(fieldtype,cellValue) && ((Integer.parseInt(cellValue)>=1 && Integer.parseInt(cellValue)<=100))){
-                                        result.add(new CustomError(columnName,rowNum," should be number"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s must be a numerical value.", columnName)));
                                     }
                                 }
                                 break;
@@ -216,7 +215,7 @@ public class ProjectController {
                             case 21:
                                 if(!cellValue.isEmpty() && !cellValue.isBlank()) {
                                     if(!checkRegex(fieldtype,cellValue) || cellValue.length()>fieldLimit){
-                                        result.add(new CustomError(columnName,rowNum," incorrect Date"));
+                                        result.add(new CustomError(columnName,rowNum,String.format("%s has incorrect date format.", columnName)));
                                     }
                                 }
                                 break;
